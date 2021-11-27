@@ -54,6 +54,7 @@ public class BookDAO implements DAO{
         String sql = "insert into books values(?, ?, ?)";
         jdbcTemplate.update(sql,sqlParams);
         System.out.println("A New Book Has Been Inserted!");
+      System.out.println(bookModel[i].getIbn() + ":" + bookModel[i].getTitle() + ":" + bookModel[i].getAuthor());
       }
 
 

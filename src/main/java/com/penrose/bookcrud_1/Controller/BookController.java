@@ -40,7 +40,7 @@ public class BookController {
   }
 
   @ResponseBody
-  @PostMapping("/savebooklist ")
+  @PostMapping("/savebooklist")
   public String saveBookList(@RequestBody BookModel[] bookModel){
     bookDAO.saveNewBooks(bookModel);
     return bookModel.length + " NEW Books Have Been Inserted!";
