@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body style="background-color: antiquewhite;">
+
+    <h1 id="author" style="text-align: center; color:crimson; " >Book Search</h1>
+
+<h1 id="title" style="text-align: center;" >Hello World</h1>
+
+<div style="text-align: center;">
+    <input type="number" id="searchByID">
+    <button onclick="getTheDamData()" > Search By IBN </button>
+
+</div>
+
+
+
+
+
+
+<script>
+
+    // function runIt(){ 
+    //     var xyz = document.getElementById("searchByID").value;
+    //     console.log(xyz);
+    // }
+
+
+    function getTheDamData(){ 
+    var xyz = document.getElementById("searchByID").value;
+
+    fetch('http://localhost:8080/api/v1/books/listbooks')
+    .then(response => response.json())
+    .then(data => document.getElementById('title').innerHTML= data[xyz].title + " : " + data[xyz].author)
+
+    }
+
+
+    
+    // let printIt = (data) => {
+
+        
+    
+    //     document.getElementById("title").innerHTML= data[xyz].title;
+    //     document.getElementById("author").innerHTML= data[xyz].author;
+    //     console.log(data)
+
+
+
+
+
+
+</script>
+
+    <!-- <script>
+        fetch('http://localhost:8080/api/v1/books/savebook', { 
+            method:'POST',
+            headers:{ 'Content-Type' : 'application/json'} ,
+            body: JSON.stringify( 
+                            {
+                ibn: 5050,
+                title: "No Place Like Home",
+                author: "Leo D. Penrose"
+                }
+        )
+        
+            }).then(res => {
+                return res.json();
+            });
+    </script> -->
+
+</body>
+
+</html>
