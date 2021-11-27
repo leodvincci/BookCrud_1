@@ -39,6 +39,14 @@ public class BookController {
     return "Book Has Been Inserted: " + bookModel.getTitle();
   }
 
+  @GetMapping("/deletebook/{ibn}")
+  public String deleteBook(@PathVariable String ibn){
+    BookModel book = bookDAO.getBookByID(ibn).get(0);
+    bookDAO.deleteBook(ibn);
+    return "Book Has Been DELETED: " + book.getTitle();
+
+  }
+
 
 
   @GetMapping("/test")

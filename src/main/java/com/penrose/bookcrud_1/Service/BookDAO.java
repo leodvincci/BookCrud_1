@@ -48,7 +48,11 @@ public class BookDAO implements DAO{
   }
 
   @Override
-  public void deleteBook() {
+  public void deleteBook(String ibn) {
+      String sqlParam = ibn;
+      String sql = "delete from books where ibn = ?";
+      jdbcTemplate.update(sql,sqlParam);
+    System.out.println("A Book Has Been DELETED!");
 
   }
 }

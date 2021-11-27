@@ -10,7 +10,7 @@ public interface DAO {
 
   void saveNewBook(BookModel bookModel);
 
-  void deleteBook();
+  void deleteBook(String ibn);
 
 
 }
