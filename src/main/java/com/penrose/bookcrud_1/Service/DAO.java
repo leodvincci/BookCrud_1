@@ -8,7 +8,7 @@ public interface DAO {
   List<BookModel> getAllBooks();
   List<BookModel> getBookByID(String ibn);
 
-  void saveNewBook();
+  void saveNewBook(BookModel bookModel);
 
   void deleteBook();
 

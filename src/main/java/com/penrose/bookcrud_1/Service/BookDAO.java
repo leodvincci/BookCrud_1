@@ -40,8 +40,11 @@ public class BookDAO implements DAO{
   }
 
   @Override
-  public void saveNewBook() {
-
+  public void saveNewBook(BookModel bookModel) {
+    Object[] sqlParams = {bookModel.getIbn(),bookModel.getTitle(),bookModel.getAuthor()};
+    String sql = "insert into books values(?, ?, ?)";
+    jdbcTemplate.update(sql,sqlParams);
+    System.out.println("A New Book Has Been Inserted!");
   }
 
   @Override
