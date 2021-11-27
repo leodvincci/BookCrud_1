@@ -39,6 +39,13 @@ public class BookController {
     return "Book Has Been Inserted: " + bookModel.getTitle();
   }
 
+  @ResponseBody
+  @PostMapping("/savebooklist")
+  public String saveBook(@RequestBody BookModel[] bookModel){
+    bookDAO.saveNewBooks(bookModel);
+    return bookModel.length + " NEW Books Have Been Inserted!";
+  }
+
   @GetMapping("/deletebook/{ibn}")
   public String deleteBook(@PathVariable String ibn){
     BookModel book = bookDAO.getBookByID(ibn).get(0);

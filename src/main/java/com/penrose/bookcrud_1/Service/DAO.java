@@ -10,6 +10,8 @@ public interface DAO {
 
   void saveNewBook(BookModel bookModel);
 
+  void saveNewBooks(BookModel[] bookModel);
+
   void deleteBook(String ibn);
 
 
