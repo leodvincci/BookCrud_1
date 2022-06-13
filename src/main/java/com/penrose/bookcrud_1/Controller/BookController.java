@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1/books")
 public class BookController {
 
@@ -34,7 +35,6 @@ public class BookController {
   }
 
   @ResponseBody
-  @CrossOrigin
   @PostMapping("/savebook")
   public String saveBook(@RequestBody BookModel bookModel){
     bookDAO.saveNewBook(bookModel);
