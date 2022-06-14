@@ -20,6 +20,11 @@ function BookLibraryComponent() {
     }
 
 
+    useEffect(
+        ()=>{
+            getLibby()
+        },[]
+    )
 
 
     function changeBackground(e) {
@@ -38,18 +43,20 @@ function BookLibraryComponent() {
         axios.delete(`http://localhost:8080/api/v1/books/deletebook/${theNum}`)
     }
 
+    function saveTheBook(){
+
+        const resp =  axios.post("http://localhost:8080/api/v1/books/savebook",{
+                ibn:document.getElementById("ibn").value,title:document.getElementById("title").value,author:document.getElementById("author_input").value
+            }
+        )
+
+    }
 
 
     return(
 
             <div>
-                <h1>Library View</h1>
-
-
-
-                <button onClick={getLibby}>View Library</button>
-
-
+        <h1 style={{paddingBottom:"75px"}}>Libby</h1>
 
                 <div style={{textAlign:"center",height:"400px",margin:"25px",overflow:"scroll"}}>
 
@@ -77,6 +84,31 @@ function BookLibraryComponent() {
 
                 ) )}
                 </div>
+
+
+
+                <div>
+                    <form action="">
+
+                        <div>
+
+                            <input id={"ibn"} placeholder={"enter ibn"} type="text"/>
+                        </div>
+
+                        <input id={"title"} placeholder={"enter title"} type="text"/>
+
+                        <div>
+                            <input id={"author_input"} placeholder={"enter author"} type="text"/>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div style={{textAlign: "center"}}>
+                    <button  onMouseDown={()=>{saveTheBook()}} onMouseUp={getLibby} > Add Book</button>
+
+                </div>
+
 
 
             </div>

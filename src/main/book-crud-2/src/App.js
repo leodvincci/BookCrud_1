@@ -15,7 +15,6 @@ function App() {
                 <div>
                     <BookLibraryComponent/>
                 </div>
-                <AddBookComponent/>
 
 
 
