@@ -1,5 +1,5 @@
 import axios from "axios";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
@@ -10,6 +10,7 @@ function BookLibraryComponent() {
     const [libdata, setLibData] = useState([]);
 
 
+
     function getLibby() {
         axios.get("http://localhost:8080/api/v1/books/listbooks")
             .then(function (response) {
@@ -17,6 +18,9 @@ function BookLibraryComponent() {
                 setLibData(response.data)
             });
     }
+
+
+
 
     function changeBackground(e) {
         if(e.color != "red"){
@@ -46,19 +50,21 @@ function BookLibraryComponent() {
                 <button onClick={getLibby}>View Library</button>
 
 
-                <div style={{textAlign:"center",height:"200px",margin:"50px",overflow:"scroll"}}>
+
+                <div style={{textAlign:"center",height:"400px",margin:"25px",overflow:"scroll"}}>
 
                 {libdata.map( d=>(
 
-                   <div>
+                   <div style={{backgroundColor:"beige"}}>
                        <hr/>
                        <p style={{color:"darkblue",fontSize:"20px",fontWeight:"bold"}}>{d.title} </p>
+                       <p style={{fontSize:"16px"}}>{d.author} </p>
 
 
                        <div >
                            {/*{element_2}*/}
 
-                           <div onMouseUp={()=>removeBook(d.ibn)} style={{width:"1%", marginLeft:"50%"}} onMouseOver={changeBackground} onMouseOut={changeBackground_2} onClick={removeBook}>
+                           <div onMouseUp={getLibby} onMouseDown={()=>removeBook(d.ibn)} style={{width:"1%", marginLeft:"50%"}} onMouseOver={changeBackground} onMouseOut={changeBackground_2}>
                                {element}
                            </div>
 

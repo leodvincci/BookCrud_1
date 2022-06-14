@@ -69,7 +69,7 @@ function AddBookComponent() {
             </div>
 
             <div style={{textAlign: "center"}}>
-                <button onClick={()=>{saveTheBook()}} > Add Book</button>
+                <button  onClick={()=>{saveTheBook()}} > Add Book</button>
 
             </div>
 
